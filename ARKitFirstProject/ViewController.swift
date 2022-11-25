@@ -16,6 +16,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // A9 chip -> iphone 6S+
+        
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -23,10 +25,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let shipScene = SCNScene(named: "art.scnassets/ship.scn")!
         
         // Set the scene to the view
-        sceneView.scene = scene
+        sceneView.scene = shipScene
     }
     
     override func viewWillAppear(_ animated: Bool) {
