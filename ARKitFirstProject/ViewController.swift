@@ -29,6 +29,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = shipScene
+        
+        for node in sceneView.scene.rootNode.childNodes { //to reach objects rootnode and move or change it
+            
+            let moveShip = SCNAction.moveBy(x: 0.5, y: 0.5, z: -0.1, duration: 1) // z towards us
+            let fadeOut = SCNAction.fadeOpacity(to: 0.5, duration: 1) // get transparan
+            let fadeIn = SCNAction.fadeOpacity(to: 1, duration: 1)
+            
+            let sequence = SCNAction.sequence([moveShip,fadeOut,fadeIn]) //to do job in order.
+            
+            
+            let repeatForever = SCNAction.repeatForever(sequence) // to repeat any action
+            
+            node.runAction(repeatForever) // to change place of object. and it will work all nodes
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
